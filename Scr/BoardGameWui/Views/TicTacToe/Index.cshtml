@@ -1,8 +1,57 @@
 ﻿
+
+@model BoardGameWui.Models.GameModelCopy
+
 @{
-    Layout = "~/Views/Shared/_Game.cshtml";
-    ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Game.cshtml";
+	ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-The Tac Tac Toe game
+
+<h2>TicTacToe</h2>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="~/Content/Site.css">
+
+</head>
+<body>
+	@Model.Player @Model.Turn
+
+
+	<table id="board" class="board">
+
+
+		@using (Html.BeginForm("ButtonPress", "TicTacToe"))
+		{
+			<tr>
+				<td><button name="ButtonPressed" value="@Model.GameBoardCopy[0].Position" style="width: 50px; height: 50px;">@Model.GameBoardCopy[0].BoardSymbol</button> </td>
+				<td><button name="ButtonPressed" value="@Model.GameBoardCopy[1].Position" style="width: 50px; height: 50px;">@Model.GameBoardCopy[1].BoardSymbol</button> </td>
+				<td><button name="ButtonPressed" value="@Model.GameBoardCopy[2].Position" style="width: 50px; height: 50px;">@Model.GameBoardCopy[2].BoardSymbol</button> </td>
+			</tr>
+			<tr>
+				<td><button name="ButtonPressed" value="@Model.GameBoardCopy[3].Position" style="width: 50px; height: 50px;">@Model.GameBoardCopy[3].BoardSymbol</button> </td>
+				<td><button name="ButtonPressed" value="@Model.GameBoardCopy[4].Position" style="width: 50px; height: 50px;">@Model.GameBoardCopy[4].BoardSymbol</button> </td>
+				<td><button name="ButtonPressed" value="@Model.GameBoardCopy[5].Position" style="width: 50px; height: 50px;">@Model.GameBoardCopy[5].BoardSymbol</button> </td>
+			</tr>
+			<tr>
+				<td><button name="ButtonPressed" value="@Model.GameBoardCopy[6].Position" style="width: 50px; height: 50px;">@Model.GameBoardCopy[6].BoardSymbol</button> </td>
+				<td><button name="ButtonPressed" value="@Model.GameBoardCopy[7].Position" style="width: 50px; height: 50px;">@Model.GameBoardCopy[7].BoardSymbol</button> </td>
+				<td><button name="ButtonPressed" value="@Model.GameBoardCopy[8].Position" style="width: 50px; height: 50px;">@Model.GameBoardCopy[8].BoardSymbol</button> </td>
+			</tr>
+		}
+	</table>
+	<table>
+		@using (Html.BeginForm("ResetGame", "TicTacToe"))
+		{
+			<tr>
+				<td><button name="Reset" style="width: 150px; height: 50px;">Reset Game</button> </td>
+			</tr>
+		}
+	</table>
+
+</body>
+</html>
